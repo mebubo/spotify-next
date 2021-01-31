@@ -21,7 +21,7 @@ object Choice {
   case object DropTrack extends Choice
   final case class FastForward(percentage: Int) extends Choice
 
-  val ffOpts = Opts.argument[Int]("step").map(FastForward).withDefault(FastForward(10))
+  val ffOpts = Opts.argument[Int]("step").withDefault(10).map(FastForward)
 
   val opts: Opts[Choice] =
     NonEmptyList
